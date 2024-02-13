@@ -13,8 +13,15 @@
 
 ## Introduction
 
-- 
 This Quiz API entails developing back-end logic to score quizzes, requiring endpoints for quiz submission, data storage, scoring mechanism implementation, score calculation, and retrieval/display, quiz scores to users.
+#Requirements:
+•	Used java appropriate technologies and frameworks (e.g., Java, Nodejs).
+•	Implement data validation and error handling.
+•	Ensure that the code is well-organized and follows best practices.
+•	I used postgres database to store quiz questions and user scores.
+•	I implement user authentication 
+•	Implement any necessary API endpoints for communication between the front-end and back-end 
+
 - Java 17
 ## Setup
 ### Prerequisites
@@ -100,7 +107,85 @@ TODO: add payload structure
     "time_stamp": "2024-02-11 00:29:23"
     }
 
-#### Quiz attempts Submit
+#### Fetch Quiz
+- Endpoint: `http://localhost:8080/api/v1/quiz`
+- Method: `GET`
+- Consumes: `application/json`
+- Produces: `application/json`
+request
+- {
+fetch with default page size and page number.
+}
+response{
+
+
+{
+"responseCode": "00",
+"responseMessage": "Quiz data fetched successfully",
+"payload": {
+"status": "00",
+"status_code": 200,
+"message": "Quiz data fetched successfully",
+"response_time": "2024-02-11 13:26:41",
+"data": {
+"content": [
+{
+"quiz_title": "Sample Quiz 3",
+"description": "This is a sample quiz for demonstration purposes",
+"mark_per_question": 10,
+"quiz_type": "MEDIUM",
+"quiz_questions": [
+{
+"question_text": "What is the capital of France?",
+"answer_options": [
+"Paris",
+"London",
+"Berlin",
+"Madrid"
+],
+"subject_category": "Geography"
+},
+{
+"question_text": "Which programming language is known for its simplicity?",
+"answer_options": [
+"Java",
+"Python",
+"C++",
+"JavaScript"
+],
+"subject_category": "Programming"
+},
+{
+"question_text": "Who wrote 'Romeo and Juliet'?",
+"answer_options": [
+"Charles Dickens",
+"Emily Bronte",
+"William Shakespeare",
+"Jane Austen"
+],
+"subject_category": "Literature"
+}
+]
+}
+],
+"metadata": {
+"page_number": 0,
+"page_size": 10,
+"total_pages": 1,
+"total_elements": 1
+}
+}
+},
+"time_stamp": "2024-02-11 13:26:41"
+}
+}
+
+
+
+
+
+
+#### Quiz attempts 
 - Endpoint: `http://localhost:8080/api/v1/quiz-attempts/submit?userId=1&quizId=1`
 - Method: `POST`
 - Consumes: `application/json`
@@ -134,3 +219,9 @@ response{
 "time_stamp": "2024-02-10 13:12:53"
 }
 
+
+#### Quiz attempts Submit
+- Endpoint: `http://localhost:8080/api/v1/quiz-attempts/submit?userId=1&quizId=1`
+- Method: `POST`
+- Consumes: `application/json`
+- Produces: `application/json`
